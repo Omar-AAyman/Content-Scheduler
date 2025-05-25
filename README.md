@@ -1,6 +1,6 @@
 # Content Scheduler
 
-Hey there! Content Scheduler is a slick Laravel app that makes it easy to create, schedule, and publish posts across multiple platforms. Built with Laravel 10, PHP 8.1, MySQL, and a clean Bootstrap frontend, it’s got everything you need for managing content like a pro. Think secure logins, post scheduling, analytics, and automated publishing—all wrapped in clean, well-tested code that shows off solid software craftsmanship.
+Hey there! Content Scheduler is a slick Laravel app that makes it easy to create, schedule, and publish posts across multiple platforms. Built with Laravel 10, PHP 8.1, MySQL, and a clean Bootstrap frontend, it’s got everything you need for managing content like a pro. Think secure logins, post scheduling, analytics, and automated publishing all wrapped in clean, well-tested code that shows off solid software craftsmanship.
 
 
 ## What It Does
