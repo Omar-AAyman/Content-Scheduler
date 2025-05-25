@@ -1,0 +1,128 @@
+.sidebar {
+    background-color: #343a40;
+    min-height: 100vh;
+    padding-top: 1rem;
+  }
+
+  .sidebar-brand {
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .sidebar-nav-item {
+    padding: 0.5rem 1rem;
+  }
+
+  .sidebar-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar-nav-link:hover {
+    color: white;
+  }
+
+  .sidebar-nav-link.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.25rem;
+  }
+
+  .sidebar-nav-icon {
+    margin-right: 0.5rem;
+  }
+
+  .header {
+    padding: 1rem 0;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .header-title {
+    margin-bottom: 0;
+  }
+
+  .stats-card {
+    border-left: 4px solid;
+    border-radius: 0.25rem;
+  }
+
+  .stats-card .icon {
+    font-size: 2rem;
+    opacity: 0.7;
+  }
+
+  .platform-badge {
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.6;
+  }
+
+  .platform-badge.active {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .char-counter {
+    transition: color 0.3s;
+  }
+
+  .char-counter.warning {
+    color: #ffc107;
+  }
+
+  .char-counter.danger {
+    color: #dc3545;
+  }
+
+  .toast {
+    opacity: 1;
+  }
+
+  .toast.success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+
+  .toast.error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  .toast.warning {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+
+  .toast.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+  }
+
+  @media (max-width: 767.98px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      z-index: 1000;
+      transition: left 0.3s;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    main {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
