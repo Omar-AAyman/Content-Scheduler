@@ -11,7 +11,6 @@ Hey there! Content Scheduler is a slick Laravel app that makes it easy to create
 - **Analytics Dashboard**: See how your posts are doing with stats on platforms, statuses, and time-based trends (week, month, year).
 - **Auto-Publishing**: A `posts:publish` command handles scheduled posts, updating their status and logging what happens.
 - **Activity Tracking**: Every major action (post creation, platform changes) is logged for easy auditing.
-- **Testing**: Solid PHPUnit tests cover post creation, platform toggling, and publishing, ensuring everything works as expected.
 
 ## Requirements
 
@@ -32,7 +31,6 @@ The app uses migrations to set up these tables:
 - **User_Platform**: Links users to platforms, noting which are active.
 - **Activity_Logs**: Keeps a record of actions like creating or deleting posts.
 
-The `TestDatabaseSeeder` adds sample users, platforms, and posts for testing. To set it up:
 
 ```bash
 php artisan migrate --seed
@@ -157,12 +155,6 @@ Clear caches:
 php artisan config:clear
 php artisan cache:clear
 php artisan config:cache
-```
-
-Run tests:
-
-```bash
-php artisan test
 ```
 
 Check logs:
