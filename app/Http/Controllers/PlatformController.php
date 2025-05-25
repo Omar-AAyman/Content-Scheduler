@@ -16,8 +16,12 @@ class PlatformController extends Controller
      */
     public function index()
     {
-        $userId = Auth::id();
+        $user = Auth::user();
+        $userId = $user->id;
         $cacheKey = "platforms_{$userId}";
+
+        // Ensure user-platform pivots are initialized
+        $this->initializeUserPlatforms($user);
 
         // Cache only the platforms data for 15 minutes
         $platforms = Cache::remember($cacheKey, now()->addMinutes(15), function () use ($userId) {
@@ -80,5 +84,20 @@ class PlatformController extends Controller
             ],
             'reload' => $needsReload
         ]);
+    }
+
+    /**
+     * Ensure the authenticated user has entries in the platform_user pivot table.
+     */
+    private function initializeUserPlatforms($user)
+    {
+        $existingPlatformIds = $user->platforms()->pluck('platform_id')->toArray();
+        $allPlatformIds = Platform::pluck('id')->toArray();
+        $missingPlatformIds = array_diff($allPlatformIds, $existingPlatformIds);
+
+        if (!empty($missingPlatformIds)) {
+            $syncData = array_fill_keys($missingPlatformIds, ['is_active' => true]);
+            $user->platforms()->syncWithoutDetaching($syncData);
+        }
     }
 }

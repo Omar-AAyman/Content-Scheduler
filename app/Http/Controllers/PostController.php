@@ -111,8 +111,14 @@ class PostController extends Controller
      */
     public function create()
     {
-        $platforms = Auth::user()->platforms()->wherePivot('is_active', true)->get();
         $user = Auth::user();
+
+        if (!$user->platforms()->wherePivot('is_active', true)->exists()) {
+            return redirect()->route('dashboard')
+                ->with('error', 'You must activate at least one platform before creating a post.');
+        }
+
+        $platforms = $user->platforms()->wherePivot('is_active', true)->get();
         $emailHandle = explode('@', $user->email)[0];
 
         return view('pages.post-editor', [
@@ -177,7 +183,14 @@ class PostController extends Controller
                 ->with('error', 'Cannot edit a published post.');
         }
 
-        $platforms = Auth::user()->platforms()->wherePivot('is_active', true)->get();
+        $user = Auth::user();
+
+        if (!$user->platforms()->wherePivot('is_active', true)->exists()) {
+            return redirect()->route('dashboard')
+                ->with('error', 'You must activate at least one platform before editing a post.');
+        }
+
+        $platforms = $user->platforms()->wherePivot('is_active', true)->get();
         $post->load('platforms');
         $user = Auth::user();
         $emailHandle = explode('@', $user->email)[0];

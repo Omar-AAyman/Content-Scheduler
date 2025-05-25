@@ -19,7 +19,7 @@ Hey there! Content Scheduler is a slick Laravel app that makes it easy to create
 - Composer (latest)
 - MySQL 8.0+
 - Laravel 10.10+
-- Optional: Redis/Memcached for caching
+- Optional: Redis/Memcached for caching (Laravel's file-based caching has been used)
 
 ## Database Setup
 
@@ -136,7 +136,6 @@ php artisan migrate --seed
 - **Platforms**: The `PlatformController` lets you toggle platforms, with a `PlatformObserver` logging changes. Caching speeds things up.
 - **Events**: Custom events (like `PostPublished`) and listeners ensure reliable logging, set up in `EventServiceProvider`.
 - **Frontend**: Bootstrap, JavaScript, and CSS create a clean, responsive UI. It’s lightweight but looks great on any device.
-- **Testing**: Tests in `tests/Feature` cover post management, platform toggling, and publishing, using `TestDatabaseSeeder` for reliable setups.
 
 ### Trade-offs
 
@@ -145,11 +144,10 @@ php artisan migrate --seed
 - **Simple Frontend**: Bootstrap and minimal JavaScript keep things fast and easy to build. A framework like Vue.js could add interactivity but would take more time.
 - **Database**: The normalized schema (with pivot tables) is flexible but makes some queries complex. Denormalizing could speed up analytics but complicate updates.
 - **Error Handling**: The publishing command logs errors well but simulates API calls. Real APIs would need extra handling for rate limits or retries.
-- **Tests**: Core features are tested, but edge cases (like simultaneous publishing) aren’t covered to save time. More tests could improve reliability.
 
 ## Video Demo
 
-A video showing off the app (login, post scheduling, platform toggling, analytics, and publishing) is available here: https://drive.google.com/drive/folders/1OyO67KbQMjP4IGpTpXDnDJOxXPBfaLJP?usp=drive_link
+A video showing off the app (login, post scheduling, platform toggling, analytics, and publishing) is available here: [https://drive.google.com/file/d/19X42lIqOdKOKE_qUXQOgcMsbNbqLpdAk/view?usp=sharing]
 
 ## Extra Commands
 

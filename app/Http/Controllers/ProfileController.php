@@ -29,7 +29,6 @@ class ProfileController extends Controller
 
         $data = [
             'name' => $request->name,
-            'email' => $request->email,
         ];
 
         // Update password only if provided

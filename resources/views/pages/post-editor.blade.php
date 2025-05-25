@@ -100,7 +100,7 @@
                                     <div id="{{ $platform->type }}-preview-image" class="mb-2">
                                         <div class="placeholder-image text-center p-5 bg-white rounded border">
                                             <i class="fas fa-image fa-3x text-muted"></i>
-                                            <p class="text-muted mt-2">Image required for Instagram</p>
+                                            <p class="text-muted mt-2">Image will appear here...</p>
                                         </div>
                                     </div>
                                     <div id="{{ $platform->type }}-preview-content" class="mt-2">
@@ -180,18 +180,13 @@
     </div>
 </form>
 @endsection
-
 @section('scripts')
 <script>
     window.platformLimits = {
         @foreach($platforms as $platform)
-        '{{ $platform->type }}': {
-            {
-                $platform - > max_content_length ? ? 280
-            }
-        }
-        , @endforeach
+            '{{ $platform->type }}': {{ $platform->max_content_length ?? 280 }}@if(!$loop->last),@endif
+        @endforeach
     };
-
 </script>
 @endsection
+
