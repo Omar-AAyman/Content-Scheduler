@@ -37,10 +37,6 @@ The app uses migrations to set up these tables:
 - **Activity_Logs**: Keeps a record of actions like creating or deleting posts.
 
 
-```bash
-php artisan migrate --seed
-```
-
 ## How to Get Started
 
 1. **Clone the Repo**
