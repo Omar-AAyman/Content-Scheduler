@@ -4,6 +4,10 @@ Hey there! Content Scheduler is a slick Laravel app that makes it easy to create
 
 **Try it out yourself!** You can test a live demo of the app here: [https://content-scheduler.great-site.net](https://content-scheduler.great-site.net)
 
+## Video Demo
+
+A video showing off the app (login, post scheduling, platform toggling, analytics, and publishing) is available here: [https://drive.google.com/file/d/19X42lIqOdKOKE_qUXQOgcMsbNbqLpdAk/view?usp=sharing]
+
 ## What It Does
 
 - **User Accounts**: Sign up, log in, and manage your profile securely with Laravel Sanctum. Every action (like logging in or out) is tracked for transparency.
@@ -144,10 +148,6 @@ php artisan migrate --seed
 - **Database**: The normalized schema (with pivot tables) is flexible but makes some queries complex. Denormalizing could speed up analytics but complicate updates.
 - **Error Handling**: The publishing command logs errors well but simulates API calls. Real APIs would need extra handling for rate limits or retries.
 
-## Video Demo
-
-A video showing off the app (login, post scheduling, platform toggling, analytics, and publishing) is available here: [https://drive.google.com/file/d/19X42lIqOdKOKE_qUXQOgcMsbNbqLpdAk/view?usp=sharing]
-
 ## Extra Commands
 
 Clear caches:
@@ -158,17 +158,12 @@ php artisan cache:clear
 php artisan config:cache
 ```
 
-Check logs:
-
-```bash
-tail -f storage/logs/laravel.log
-```
 
 ## Notes for Developers
 
 - **Code Quality**: Laravel Pint (`./vendor/bin/pint`) keeps the code tidy and follows PSR-12 standards.
-- **Future Features**: Easy to add new platforms, analytics, or notifications (e.g., via email or Pusher).
+- **Future Features**: Easy to add new posts for each platform with a specific scheduled posting day, and show analytics.
 - **Performance**: Caching and query optimizations (like `DB::raw`) keep things fast. Indexes on `posts.scheduled_time` and `user_id` help, too.
-- **Security**: Password hashing, CSRF protection, and authorization are in place. Could add rate limiting or two-factor auth later.
+- **Security**: Password hashing, CSRF protection, authorization, and post policies are in place. Could add rate limiting or two-factor auth later.
 
 This project is all about clean, reliable code with a user-friendly vibe, built to make content scheduling a breeze. 🚀
